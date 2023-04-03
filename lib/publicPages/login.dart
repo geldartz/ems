@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:ems/globals/router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -52,13 +53,17 @@ class _LoginPageState extends State<LoginPage> {
                 child: Text(
                   "Employee Management System",
                   textAlign: TextAlign.center,
-                  style: GoogleFonts.overpass(fontSize: 22, fontWeight: FontWeight.w900, color: Colors.white),
+                  style: GoogleFonts.overpass(
+                      fontSize: 22,
+                      fontWeight: FontWeight.w900,
+                      color: Colors.white),
                 )),
             Positioned(
               bottom: 0,
               height: size.height * .55,
               child: Container(
-                padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
                 width: size.width,
                 decoration: BoxDecoration(
                   shape: BoxShape.rectangle,
@@ -85,14 +90,18 @@ class _LoginPageState extends State<LoginPage> {
                       padding: const EdgeInsets.only(top: 30),
                       child: Text(
                         'Welcome',
-                        style: GoogleFonts.plusJakartaSans(fontSize: 26, fontWeight: FontWeight.w600, color: const Color(0xFF2465C7)),
+                        style: GoogleFonts.plusJakartaSans(
+                            fontSize: 26,
+                            fontWeight: FontWeight.w600,
+                            color: const Color(0xFF2465C7)),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(0, 10, 0, 30),
                       child: Text(
                         'Login to continue',
-                        style: GoogleFonts.plusJakartaSans(fontSize: 13, color: const Color(0xFF888888)),
+                        style: GoogleFonts.plusJakartaSans(
+                            fontSize: 13, color: const Color(0xFF888888)),
                       ),
                     ),
                     FloatingInput(
@@ -108,25 +117,35 @@ class _LoginPageState extends State<LoginPage> {
                       textController: passwordController,
                     ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 40, vertical: 20),
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          context.router.push(const MainholderRouter());
+                        },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: const Color(0xFF2465C7),
-                          padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 40, vertical: 15),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(50)),
                         ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text("Login", style: GoogleFonts.plusJakartaSans(color: Colors.white, fontSize: 14, fontWeight: FontWeight.w600)),
+                            Text("Login",
+                                style: GoogleFonts.plusJakartaSans(
+                                    color: Colors.white,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w600)),
                           ],
                         ),
                       ),
                     ),
                     Text(
                       'By logging in, you agree to our Privacy Policy and Terms of Use.',
-                      style: GoogleFonts.plusJakartaSans(fontSize: 10, color: const Color(0xFF888888)),
+                      style: GoogleFonts.plusJakartaSans(
+                          fontSize: 10, color: const Color(0xFF888888)),
                     )
                   ],
                 ),

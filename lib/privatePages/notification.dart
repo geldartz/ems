@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 @RoutePage(name: 'NotificationRouter')
 class NotificationPage extends StatefulWidget {
@@ -12,6 +13,11 @@ class NotificationPage extends StatefulWidget {
 class _NotificationPageState extends State<NotificationPage> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      child: Center(
+        child: Text("Notification Page",
+            style: GoogleFonts.plusJakartaSans(fontSize: 40)),
+      ),
+    );
   }
 }

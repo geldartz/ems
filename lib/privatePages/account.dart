@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 @RoutePage(name: 'AccountRouter')
 class AccountPage extends StatefulWidget {
@@ -12,6 +13,11 @@ class AccountPage extends StatefulWidget {
 class _AccountPageState extends State<AccountPage> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      child: Center(
+        child: Text("Account Page",
+            style: GoogleFonts.plusJakartaSans(fontSize: 40)),
+      ),
+    );
   }
 }

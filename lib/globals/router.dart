@@ -9,6 +9,7 @@ class AppRouter extends $AppRouter {
       path: '/home',
       page: MainholderRouter.page,
       children: [
+        AutoRoute(path: 'clockIn', page: ClockInRouter.page),
         AutoRoute(path: 'home', page: HomepageRouter.page),
         AutoRoute(path: 'logs', page: LogsRouter.page),
         AutoRoute(path: 'notification', page: NotificationRouter.page),
@@ -16,6 +17,9 @@ class AppRouter extends $AppRouter {
       ],
     ),
     AutoRoute(path: '/', page: LoginRouter.page),
+    AutoRoute(path: '/locationConfirm', page: LocationConfirmRouter.page),
+    AutoRoute(path: '/health', page: HealthConfirm.page),
+    AutoRoute(path: '/success_clock_in', page: SuccessClockInRouter.page),
   ];
 }
 
