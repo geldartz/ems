@@ -1,5 +1,8 @@
+import 'package:ems/globals/providers/AuthProvider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import 'globals/auth_guard.dart';
 import 'globals/router.dart';
 
 void main() {
@@ -33,19 +36,26 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
+    final authService = AuthService();
     final appRouter = AppRouter();
 
     return MaterialApp.router(
-      theme: ThemeData(
+      routerConfig: appRouter.config(),
+      theme: ThemeData.light().copyWith(
         pageTransitionsTheme: const PageTransitionsTheme(builders: {
-          // replace default CupertinoPageTransitionsBuilder with this
           TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
           TargetPlatform.android: CupertinoPageTransitionsBuilder(),
         }),
       ),
       title: 'Employee Management System',
       debugShowCheckedModeBanner: false,
-      routerConfig: appRouter.config(),
+      builder: (_, router) {
+        return ChangeNotifierProvider<AuthService>(
+            create: (_) => authService,
+            child: MultiProvider(providers: [
+              ChangeNotifierProvider<AuthProvider>(create: (_) => AuthProvider()),
+            ], child: router!));
+      },
     );
   }
 }

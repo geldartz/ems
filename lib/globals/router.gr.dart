@@ -54,9 +54,14 @@ abstract class $AppRouter extends _i7.RootStackRouter {
       );
     },
     LoginRouter.name: (routeData) {
+      final args = routeData.argsAs<LoginRouterArgs>(
+          orElse: () => const LoginRouterArgs());
       return _i7.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i6.LoginPage(),
+        child: _i6.LoginPage(
+          key: args.key,
+          onLoginResult: args.onLoginResult,
+        ),
       );
     },
   };
@@ -134,14 +139,38 @@ class NotificationRouter extends _i7.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i6.LoginPage]
-class LoginRouter extends _i7.PageRouteInfo<void> {
-  const LoginRouter({List<_i7.PageRouteInfo>? children})
-      : super(
+class LoginRouter extends _i7.PageRouteInfo<LoginRouterArgs> {
+  LoginRouter({
+    _i8.Key? key,
+    void Function(bool)? onLoginResult,
+    List<_i7.PageRouteInfo>? children,
+  }) : super(
           LoginRouter.name,
+          args: LoginRouterArgs(
+            key: key,
+            onLoginResult: onLoginResult,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'LoginRouter';
 
-  static const _i7.PageInfo<void> page = _i7.PageInfo<void>(name);
+  static const _i7.PageInfo<LoginRouterArgs> page =
+      _i7.PageInfo<LoginRouterArgs>(name);
+}
+
+class LoginRouterArgs {
+  const LoginRouterArgs({
+    this.key,
+    this.onLoginResult,
+  });
+
+  final _i8.Key? key;
+
+  final void Function(bool)? onLoginResult;
+
+  @override
+  String toString() {
+    return 'LoginRouterArgs{key: $key, onLoginResult: $onLoginResult}';
+  }
 }
