@@ -21,8 +21,10 @@ dependencies:
   lottie: ^2.3.1
   flutter_svg: ^1.1.6
   http: ^0.13.5
-  shared_preferences: ^0.5.5
+  shared_preferences: ^2.0.13
   flutter_device_type: ^0.4.0
+  google_maps_flutter: ^2.2.5
+  geolocator: ^9.0.2
 
 dev_dependencies:
   flutter_test:
@@ -39,3 +41,4 @@ flutter:
     - assets/images/
     - assets/lottie/
     - assets/svg/
+    - assets/map_style.txt
