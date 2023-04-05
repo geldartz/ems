@@ -1,8 +1,10 @@
 import 'dart:async';
 
 import 'package:auto_route/auto_route.dart';
+import 'package:ems/globals/contants.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 
@@ -65,7 +67,7 @@ class _HomepageState extends State<Homepage> {
       // specified current users location
       CameraPosition cameraPosition = CameraPosition(
         target: LatLng(value.latitude, value.longitude),
-        zoom: 13,
+        zoom: 15,
       );
 
       final GoogleMapController controller = await _controller.future;
@@ -76,11 +78,12 @@ class _HomepageState extends State<Homepage> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Consumer<AuthProvider>(builder: (context, provider, child) {
-      return Container(
-        child: SafeArea(
-          // on below line creating google maps
-          child: GoogleMap(
+      return SizedBox(
+        height: size.height,
+        child: Stack(alignment: Alignment.center, children: [
+          GoogleMap(
             initialCameraPosition: _kGooglePlex,
             mapToolbarEnabled: false,
             markers: Set<Marker>.of(_markers),
@@ -93,7 +96,18 @@ class _HomepageState extends State<Homepage> {
               _controller.complete(controller);
             },
           ),
-        ),
+          Positioned(
+            child: InkWell(
+              onTap: () {
+                context.router.pushNamed('test');
+              },
+              child: Text(
+                'GO TO TEST PAGE',
+                style: GoogleFonts.poppins(fontSize: 20, fontWeight: FontWeight.w600, color: textblack),
+              ),
+            ),
+          )
+        ]),
       );
     });
   }

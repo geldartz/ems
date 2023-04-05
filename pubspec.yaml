@@ -13,18 +13,19 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.2
-  auto_route: ^6.0.3
-  auto_route_generator: ^6.0.0
+  auto_route: ^6.0.5
+  auto_route_generator: ^6.0.3
   google_fonts: ^4.0.3
   provider: ^6.0.5
   animated_notch_bottom_bar: ^0.0.6
   lottie: ^2.3.1
-  flutter_svg: ^1.1.6
+  flutter_svg: ^2.0.4
   http: ^0.13.5
   shared_preferences: ^2.0.13
   flutter_device_type: ^0.4.0
   google_maps_flutter: ^2.2.5
   geolocator: ^9.0.2
+  lazy_load_indexed_stack: ^0.1.4
 
 dev_dependencies:
   flutter_test:
